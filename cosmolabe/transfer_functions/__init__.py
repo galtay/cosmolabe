@@ -1,1 +1,1 @@
-from eh98.effective_shape import EH98_effective_shape
+from eh98.eh98 import EH98

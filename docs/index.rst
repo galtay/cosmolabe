@@ -11,6 +11,8 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   eh98
+
 API Docs:
 
 .. toctree::
