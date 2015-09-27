@@ -229,7 +229,14 @@ class EH98(object):
     #=========================================
 
     def T(self, k_in):
-        """The full transfer function fit (Eq. 16)."""
+        r"""The full transfer function fit (Eq. 16).
+
+        The full fitting function. This form models both the supression at 
+        high wave numbers and the oscillations caused by baryons.  
+
+        :parameter k_in: input wavenumbers
+        :type k_in: ``quantity``
+        """
         k = self._preprocess_input_k(k_in)
         Tb = self._Tb(k)
         Tc = self._Tc(k)

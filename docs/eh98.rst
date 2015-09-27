@@ -2,8 +2,29 @@
 Eisenstein and Hu 1998 Transfer Function
 ========================================
 
-The Transfer function fit
-=========================
+This transfer function fit is described in the article "Baryonic Features in 
+the Matter Transfer Function" by Eisenstein and Hu (EH98_).  It 
+describes three transfer function fits,
+
+The "zero baryon" fit, :math:`T_{zb}(k)`
+  In this fit, all baryons are treated as cold dark matter.  There is no 
+  supression at high wave numbers and no oscillations. 
+
+The "no wiggles" fit, :math:`T_{nw}(k)`
+  In this fit, the supression due to baryons is included but only the 
+  shape, not the oscillations. 
+
+The full transfer function fit, :math:`T(k)`
+  In the full transfer function fit, both the supression and the oscillations
+  due to baryons are included.  
+
+The last fit is the most accurate when compared to the numerical results 
+of the code CMBfast, but the other two provide useful comparisons and have
+simpler forms.  
+
+
+The Full Transfer Function Fit
+==============================
 
 .. pull-quote::
 
@@ -71,8 +92,8 @@ The Transfer function fit
 
 
 
-The effective shape Transfer function fit
-=========================================
+The Zero-Baryon Fit
+===================
 
 .. pull-quote::
 
@@ -91,6 +112,8 @@ The effective shape Transfer function fit
     better fit to the zero-baryon case extrapolated from trace
     baryon models calculated by CMBfast."`
 
+    -- EH98
+
 .. math::
 
     \begin{aligned}
@@ -99,9 +122,49 @@ The effective shape Transfer function fit
       C_0(q) &= 14.2 + \frac{731}{1 + 62.5 q}
     \end{aligned}
 
-.. pull-quote::
+In this case, the wave number :math:`k` is parameterized, 
 
-    -- EH98
+.. math::
+
+    q = \frac{k}{h \, {\rm Mpc^{-1}}} \frac{\ThetaCMB^2}{\Gamma} 
+      = \frac{k}{\rm Mpc^{-1}} \frac{\ThetaCMB^2}{\Omega_{\rm m} h^2} 
+      = \frac{k}{13.41 k_{\rm eq}}
+
+
+The No-Wiggles Fit
+==================
+
+The supression at high wave numbers due to baryons (but not the oscillations)
+can be modelled by changing the parameterization of :math:`k` using an 
+effective shape parameter :math:`\Gamma_{\rm eff}`.  The main form of the 
+fit is the same as in the zero-baryon case. 
+
+.. math::
+
+    \begin{aligned}
+      T_0(q) &= \frac{L_0}{L_0 + C_0 q^2} \\
+      L_0(q) &= \ln(2 \exp + 1.8 q) \\
+      C_0(q) &= 14.2 + \frac{731}{1 + 62.5 q}
+    \end{aligned}
+
+But the wave number :math:`k` is parameterized using an effective shape 
+parameter that is rescaled as one moves through the sound horizon,
+
+.. math::
+
+    q_{\rm eff} = \frac{k}{h \, {\rm Mpc^{-1}}}
+    \frac{\ThetaCMB^2}{\Gamma_{\rm eff}}
+
+.. math::
+
+    \begin{aligned}
+      \Gamma_{\rm eff}(k) &= \Om h \left[ \aG +
+        \frac{1 - \aG} {1 + (0.43\,k\,s)^4} \right] \\
+      \aG &= 1 - 0.328 \ln(431 \Om h^2) \fb +
+                 0.380 \ln(22.3 \Om h^2) \left(\fb\right)^2
+    \end{aligned}
+
+
 
 
 Equations in context
@@ -233,19 +296,15 @@ The sound horizon at the drag epoch
 
     -- EH98
 
-.. seealso::
 
-   :py:func:`_return_R`, :py:func:`_return_k_eq`
-
-
-The silk damping scale
+The Silk damping scale
 ----------------------
 
 .. pull-quote::
 
     `"On small scales, the coupling between the baryons and the phtons is not
     perfect, such that the two species are able to diffuse past one another`
-    (Silk_1968_) `.  The silk damping scale is well fitted by the approximation`
+    (Silk_1968_) `.  The Silk damping scale is well fitted by the approximation`
 
 .. math::
 
@@ -262,48 +321,6 @@ The silk damping scale
 
     -- EH98
 
-
-The parameterized wavenumber
-----------------------------
-
-.. pull-quote::
-
-    `"Here the transfer function is parameterized by`
-    :math:`q \propto k / \keq` `more commonly expressed as a
-    shape parameter` :math:`\Gamma = \Om h` `, where`
-
-.. math::
-
-    q = \frac{k}{h \, {\rm Mpc^{-1}}}
-    \frac{\ThetaCMB^2}{\Gamma}
-
-.. pull-quote::
-
-    -- EH98
-
-.. math::
-
-    q_{\rm eff} = \frac{k}{h \, {\rm Mpc^{-1}}}
-    \frac{\ThetaCMB^2}{\Gamma_{\rm eff}}
-
-.. pull-quote::
-
-    `"A reasonable fit to the nonoscillatory part of the transfer
-    function can be written by rescaling` :math:`\Gamma_{\rm eff}(k)`
-    `as one moves through the sound horizon`
-
-.. math::
-
-    \begin{aligned}
-      \Gamma_{\rm eff}(k) &= \Om h \left[ \aG +
-        \frac{1 - \aG} {1 + (0.43\,k\,s)^4} \right] \\
-      \aG &= 1 - 0.328 \ln(431 \Om h^2) \fb +
-                 0.380 \ln(22.3 \Om h^2) \left(\fb\right)^2"
-    \end{aligned}
-
-.. pull-quote::
-
-    -- EH98
 
 
 
