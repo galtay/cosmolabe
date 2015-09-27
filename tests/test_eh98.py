@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 import cosmolabe as cl
-from cosmolabe.parameters import PLANCK15
 from cosmolabe.transfer_functions import EH98
 
 plt.ion()
